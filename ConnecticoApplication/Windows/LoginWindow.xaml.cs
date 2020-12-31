@@ -1,4 +1,5 @@
 ﻿using ConnecticoApplication.Controler;
+using ConnecticoApplication.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,7 +27,7 @@ namespace ConnecticoApplication
         public LoginWindow()
         {
             InitializeComponent();
-            controllerLoginPage = new LoginWindowController(this);
+            controllerLoginPage = new LoginWindowController(this, new UserService());
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -38,8 +39,7 @@ namespace ConnecticoApplication
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            controllerLoginPage.CheckUserLoginData(username_box.Text,password_box.Password);
-    
+            controllerLoginPage.CheckUserLoginDataAsync(username_box.Text,password_box.Password);
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

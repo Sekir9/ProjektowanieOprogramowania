@@ -1,11 +1,16 @@
-﻿using System;
+﻿using ConnecticoApplication.Services;
+using ConnecticoApplication.Utils;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Threading;
 
@@ -13,34 +18,40 @@ namespace ConnecticoApplication.Controler
 {
     class LoginWindowController
     {
-        private LoginWindow loginPage;
-        public LoginWindowController(LoginWindow loginpage)
+        private LoginWindow _loginPage;
+        private IUserService _userService;
+
+        public LoginWindowController(LoginWindow loginpage, IUserService userService)
         {
-            loginPage = loginpage;
+            _loginPage = loginpage;
+            _userService = userService;
         }
 
         public void LoginDataAccepted()
         {
-            loginPage.loading_icon.Visibility = System.Windows.Visibility.Collapsed;
-            loginPage.status_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.CheckCircle;
-            loginPage.status_icon.Foreground = new SolidColorBrush(Color.FromArgb(255, (byte)48, (byte)171, (byte)91));
-            loginPage.status_icon.Visibility = System.Windows.Visibility.Visible;
-            loginPage.status_block.Text = "Logged";
-            DelayAction(2000, xd);
+            _loginPage.loading_icon.Visibility = Visibility.Collapsed;
+
+            _loginPage.status_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.CheckCircle;
+            _loginPage.status_icon.Foreground = new SolidColorBrush(Color.FromArgb(255, (byte)48, (byte)171, (byte)91));
+            _loginPage.status_icon.Visibility = Visibility.Visible;
+
+            _loginPage.back_Button.Visibility = Visibility.Collapsed;
+            _loginPage.status_block.Text = "Logged";
+            DelayAction(2000, OpenMainWindow);
         }
 
         public void RefreshLoading()
         {
-            loginPage.loading_icon.Visibility = System.Windows.Visibility.Visible;
-            loginPage.status_icon.Visibility = System.Windows.Visibility.Collapsed;
-            loginPage.status_block.Text = "Loading..";
+            _loginPage.loading_icon.Visibility = Visibility.Visible;
+            _loginPage.status_icon.Visibility = Visibility.Collapsed;
+            _loginPage.status_block.Text = "Loading..";
         }
 
-        public void xd()
+        public void OpenMainWindow()
         {
             MainWindow win = new MainWindow();
             win.Show();
-            loginPage.Close();
+            _loginPage.Close();
         }
 
         public static void DelayAction(int millisecond, Action action)
@@ -59,64 +70,27 @@ namespace ConnecticoApplication.Controler
 
         public void LoginDataNotAccepted()
         {
-            loginPage.loading_icon.Visibility = System.Windows.Visibility.Collapsed;
-            loginPage.status_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.CloseCircle;
-            loginPage.status_icon.Foreground = new SolidColorBrush(Colors.Red);
-            loginPage.status_icon.Visibility = System.Windows.Visibility.Visible;
-            loginPage.status_block.Text = "Your username or password is incorrect";
+            _loginPage.loading_icon.Visibility = Visibility.Collapsed;
+
+            _loginPage.status_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.CloseCircle;
+            _loginPage.status_icon.Foreground = new SolidColorBrush(Colors.Red);
+            _loginPage.status_icon.Visibility = Visibility.Visible;
+
+            _loginPage.status_block.Text = "Your username or password is incorrect";
+            _loginPage.back_Button.Visibility = Visibility.Visible;
         }
 
-        public void CheckUserLoginData(string username, string password)
+        public async Task CheckUserLoginDataAsync(string username, string password)
         {
-
-            if ("admin" == username && "admin" == password)
+            bool success = await _userService.Login(username, password);
+            if (success)
             {
-
                 DelayAction(1000, LoginDataAccepted);
             }
-            else DelayAction(1000, LoginDataNotAccepted);
-
-            /*DataSet ds = new DataSet();
-            SqlConnection cs = new SqlConnection("Data Source=NEPTUN; Initial Catalog=LogIn; Integrated Security=TRUE");
-            cs.Open();
-            SqlDataAdapter da = new SqlDataAdapter();
-
-            string templogin = "";
-            string temppassword = "";
-
-            using (SqlCommand command = new SqlCommand("SELECT * FROM UsersLogins", cs))
+            else
             {
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        for (int i = 0; i < reader.FieldCount; i++)
-                        {
-                            
-                            switch (i)
-                            {
-                                case 0:
-                                    templogin = reader.GetValue(i).ToString();
-                                    Console.WriteLine(templogin);
-                                    break;
-                                case 1:
-                                    temppassword = reader.GetValue(i).ToString();
-                                    Console.WriteLine(temppassword);
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        if (templogin == username && temppassword == password)
-                        {
-
-                            DelayAction(1000, LoginDataAccepted);
-                            break;
-                        }
-                        else DelayAction(1000, LoginDataNotAccepted);
-                    }
-                }
-            }*/
+                DelayAction(1000, LoginDataNotAccepted);
+            }
         }
     }
 }
