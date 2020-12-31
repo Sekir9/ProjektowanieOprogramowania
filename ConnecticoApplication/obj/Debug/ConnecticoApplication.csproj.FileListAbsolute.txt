@@ -35,3 +35,40 @@ C:\Users\Komputerr\Desktop\Connectico.Application\ConnecticoApplication\obj\Debu
 C:\Users\Komputerr\Desktop\Connectico.Application\ConnecticoApplication\obj\Debug\ConnecticoApplication.csproj.CopyComplete
 C:\Users\Komputerr\Desktop\Connectico.Application\ConnecticoApplication\obj\Debug\ConnecticoApplication.exe
 C:\Users\Komputerr\Desktop\Connectico.Application\ConnecticoApplication\obj\Debug\ConnecticoApplication.pdb
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\ConnecticoApplication.csprojAssemblyReference.cache
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\App.g.cs
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\ConnecticoApplication_MarkupCompile.cache
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\ConnecticoApplication_MarkupCompile.lref
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\ConnecticoApplication.exe
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\ConnecticoApplication.pdb
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\ConnecticoApplication.exe.config
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\ConnecticoApplication.exe
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\ConnecticoApplication.pdb
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\FontAwesome.WPF.dll
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\MaterialDesignColors.dll
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\FontAwesome.WPF.xml
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\MaterialDesignColors.pdb
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\App.baml
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\ConnecticoApplication.g.resources
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\ConnecticoApplication.Properties.Resources.resources
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\ConnecticoApplication.csproj.GenerateResource.cache
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\ConnecticoApplication.csproj.CoreCompileInputs.cache
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\ConnecticoApplication.csproj.CopyComplete
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\Themes\ButtonTheme.baml
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\Windows\LoginWindow.g.cs
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\Windows\MainWindow.g.cs
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\Windows\LoginWindow.baml
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\Windows\MainWindow.baml
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\Views\EmptyView.g.cs
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\Views\DataGridTestView.g.cs
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\Views\EmptyView.baml
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\Views\DataGridTestView.baml

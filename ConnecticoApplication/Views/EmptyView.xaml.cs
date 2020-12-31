@@ -18,9 +18,9 @@ namespace ConnecticoApplication
     /// <summary>
     /// Interaction logic for SynchronizationConfiguration.xaml
     /// </summary>
-    public partial class SynchronizationConfiguration : Page
+    public partial class EmptyView : Page
     {
-        public SynchronizationConfiguration()
+        public EmptyView()
         {
             InitializeComponent();
         }

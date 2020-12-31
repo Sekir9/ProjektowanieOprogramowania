@@ -18,9 +18,9 @@ namespace ConnecticoApplication
     /// <summary>
     /// Interaction logic for SynchronizationPage.xaml
     /// </summary>
-    public partial class SynchronizationPage : Page
+    public partial class DataGridTestView : Page
     {
-        public SynchronizationPage()
+        public DataGridTestView()
         {
             InitializeComponent();
         }

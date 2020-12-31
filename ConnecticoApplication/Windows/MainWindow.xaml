@@ -64,13 +64,13 @@
             <TextBlock Text="Menadzer PTTK" Margin="150,0,0,0" VerticalAlignment="Center" FontSize="22" HorizontalAlignment="Center" Foreground="White"/>
             <Button x:Name="max_minimize_button" Margin="0,0,80,0" Click="Max_Minimize_button_Click" BorderThickness="0"     HorizontalAlignment="Right" VerticalAlignment="Center" Height="40" Width="40" Foreground="{x:Null}" >
                 <Button.Background>
-                    <ImageBrush  ImageSource="Images/enlarge.png"/>
+                    <ImageBrush  ImageSource="/Images/enlarge.png"/>
                 </Button.Background>
             </Button>
             
             <Button x:Name="ExitButton" Click="ExitButton_Click" BorderThickness="0"  Margin="20,0"   HorizontalAlignment="Right" VerticalAlignment="Center" Height="40" Width="40" Foreground="{x:Null}" >
                 <Button.Background>
-                    <ImageBrush  ImageSource="Images/remove.png"/>
+                    <ImageBrush  ImageSource="/Images/remove.png"/>
                 </Button.Background>
             </Button>
             
@@ -84,7 +84,7 @@
                     <Button x:Name="ButtonOpenMenu"  Width="60" Visibility="Collapsed" Height="60"  BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpeneMenu_Click" Background="{x:Null}">
                         <materialDesign:PackIcon Foreground="Blue"  Width="40" Height="40"  Kind="Menu" />
                     </Button>
-                    <Image Source="Images/pttk2.jpg" Height="80" Margin="10,0,10,20" VerticalAlignment="Bottom" />
+                    <Image Source="/Images/pttk2.jpg" Height="80" Margin="10,0,10,20" VerticalAlignment="Bottom" />
                 </Grid>
                 <ListView x:Name="ListViewMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" Foreground="White">
                     <ListViewItem Height="60">
@@ -121,7 +121,7 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="200,10,10,10"  >
-            <Frame x:Name="GridMain" Source="SynchronizationPage.xaml" NavigationUIVisibility="Hidden"  >
+            <Frame x:Name="GridMain" Source="/Views/EmptyView.xaml" NavigationUIVisibility="Hidden"  >
                 
             </Frame>
         </Grid>

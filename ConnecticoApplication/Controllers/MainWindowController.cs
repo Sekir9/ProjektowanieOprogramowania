@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace ConnecticoApplication.Controler
 {
-    class Controller
+    public class MainWindowController
     {
         private readonly MainWindow form;
-        public SynchronizationPage synchronizationPage;
-        public SynchronizationConfiguration synchronizationConfiguration;
+        public DataGridTestView synchronizationPage;
+        public EmptyView synchronizationConfiguration;
 
-        public Controller(MainWindow form)
+        public MainWindowController(MainWindow form)
         {
             this.form = form;
-            synchronizationPage = new SynchronizationPage();
-            synchronizationConfiguration = new SynchronizationConfiguration();
+            synchronizationPage = new DataGridTestView();
+            synchronizationConfiguration = new EmptyView();
         }
 
         public void ResizeMainFrame()
@@ -32,11 +32,9 @@ namespace ConnecticoApplication.Controler
             {
                 case 0:
                     form.GridMain.Content = synchronizationPage; 
-                   // form.Page_Label.Text = "Home Page";
                     break;
                 case 1:
                     form.GridMain.Content = synchronizationConfiguration;
-                    // form.Page_Label.Text = "Simulation Page";
                     break;           
                 default:
                     form.GridMain.Content = synchronizationPage;

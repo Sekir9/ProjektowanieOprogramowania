@@ -21,13 +21,13 @@ namespace ConnecticoApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Controller formController;
+        private MainWindowController formController;
         //private Thickness margin;
 
         public MainWindow()
         {
             InitializeComponent();
-            formController = new Controller(this);
+            formController = new MainWindowController(this);
            // margin = this.GridMain.Margin;
             //margin.Left = 190;
             //this.GridMain.Margin = margin;

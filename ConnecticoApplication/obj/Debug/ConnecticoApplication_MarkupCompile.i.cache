@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Komputerr\Desktop\Connectico.Application\ConnecticoApplication\obj\Debug\
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\obj\Debug\
 ConnecticoApplication
 none
 false
 DEBUG;TRACE
-C:\Users\Komputerr\Desktop\Connectico.Application\ConnecticoApplication\App.xaml
-599950104
+C:\Users\zmuda\Documents\Adam\Projektowanie Szpunar Projekt\ClientRepo\ProjektowanieOprogramowania\ConnecticoApplication\App.xaml
+5-1876216336
 
-141016019826
-1860545431
-ButtonTheme.xaml;Login.xaml;MainWindow.xaml;SynchronizationConfiguration.xaml;SynchronizationPage.xaml;
+111927084256
+181733418999
+Themes\ButtonTheme.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Views\EmptyView.xaml;Views\DataGridTestView.xaml;
 
-True
+False
 

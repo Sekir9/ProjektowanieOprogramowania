@@ -19,14 +19,14 @@ using System.Windows.Shapes;
 namespace ConnecticoApplication
 {
    
-    public partial class Login : Window
+    public partial class LoginWindow : Window
     {
-        LoginPageController controllerLoginPage; 
+        LoginWindowController controllerLoginPage; 
 
-        public Login()
+        public LoginWindow()
         {
             InitializeComponent();
-            controllerLoginPage = new LoginPageController(this);
+            controllerLoginPage = new LoginWindowController(this);
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -40,6 +40,11 @@ namespace ConnecticoApplication
         {
             controllerLoginPage.CheckUserLoginData(username_box.Text,password_box.Password);
     
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)

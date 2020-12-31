@@ -1,4 +1,4 @@
-﻿<Window x:Class="ConnecticoApplication.Login"
+﻿<Window x:Class="ConnecticoApplication.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -71,6 +71,8 @@
         <fa:ImageAwesome x:Name="loading_icon" Margin="0,0,0,100"  Icon="Spinner" Spin="True" Foreground="White" Height="80" Width="80"  SpinDuration="1.3"  Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" />
         <TextBox x:Name="status_block" BorderThickness="0" HorizontalAlignment="Center" Foreground="White" FontSize="20" Text="Loading.." Grid.Column="1" VerticalAlignment="Center" Margin="0,80,0,0"/>
 
+
+
         <Grid x:Name="SLIDE" RenderTransformOrigin="0.5,0.5" Margin="449.535,0,0.465,0" Grid.ColumnSpan="2" d:IsHidden="True">
             <Grid.RenderTransform>
                 <TransformGroup>
@@ -91,15 +93,31 @@
                 </Rectangle.RenderTransform>
             </Rectangle>
             <materialDesign:PackIcon Kind="NetworkAttachedStorage" Width="60" Height="auto" Margin="184,268,0,0"/>
-            <Image Source="Images/pttk2.jpg"  HorizontalAlignment="Center" Height="200"  VerticalAlignment="Center" Width="342" Margin="60,62,48,58"/>
+            <Image Source="/Images/pttk2.jpg"  HorizontalAlignment="Center" Height="200"  VerticalAlignment="Center" Width="342" Margin="60,62,48,58"/>
+
+
         </Grid>
+
+        <Button x:Name="ExitButton" 
+                Click="ExitButton_Click" 
+                BorderThickness="0"  
+                Margin="20"   
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                Height="40" 
+                Width="40" 
+                Foreground="{x:Null}" 
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/remove.png"/>
+            </Button.Background>
+        </Button>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-
-
-
     </Grid>
 </Window>

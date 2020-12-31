@@ -11,10 +11,10 @@ using System.Windows.Threading;
 
 namespace ConnecticoApplication.Controler
 {
-    class LoginPageController
+    public class LoginViewModel
     {
-        Login loginPage;
-        public LoginPageController(Login loginpage)
+        LoginView loginPage;
+        public LoginViewModel(LoginView loginpage)
         {
             loginPage = loginpage;
         }
