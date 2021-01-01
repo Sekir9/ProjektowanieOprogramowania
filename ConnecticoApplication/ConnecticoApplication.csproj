@@ -82,16 +82,27 @@
     <Compile Include="Controllers\MainWindowController.cs" />
     <Compile Include="Models\AuthenticateRequest.cs" />
     <Compile Include="Models\AuthenticateResponse.cs" />
+    <Compile Include="Models\MountainGroup.cs" />
+    <Compile Include="Services\IMountainGroupService.cs" />
     <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\MountainGroupService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Utils\HttpsApiClientProvider.cs" />
+    <Compile Include="ViewModels\MountainGroupsViewModel.cs" />
     <Compile Include="Views\EmptyView.xaml.cs">
       <DependentUpon>EmptyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DataGridTestView.xaml.cs">
       <DependentUpon>DataGridTestView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\MountainGroupDetailsWindow.xaml.cs">
+      <DependentUpon>MountainGroupDetailsWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Themes\ButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MountainGroupsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,6 +119,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\LoginWindowController.cs" />
+    <Compile Include="Views\MountainGroupsView.xaml.cs">
+      <DependentUpon>MountainGroupsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -120,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DataGridTestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MountainGroupDetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,9 +177,7 @@
   <ItemGroup>
     <Resource Include="Images\logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\remove.png" />
   </ItemGroup>

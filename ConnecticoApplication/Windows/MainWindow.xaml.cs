@@ -24,13 +24,16 @@ namespace ConnecticoApplication
         private MainWindowController formController;
         //private Thickness margin;
 
+        public static MainWindow Instance { get; private set; }
+
         public MainWindow()
         {
+            if (Instance != null)
+                throw new InvalidOperationException("Main window should be only one and it should be opened whole time!");
+
             InitializeComponent();
+            Instance = this;
             formController = new MainWindowController(this);
-           // margin = this.GridMain.Margin;
-            //margin.Left = 190;
-            //this.GridMain.Margin = margin;
         }
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
@@ -47,17 +50,12 @@ namespace ConnecticoApplication
         {
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
             ButtonCloseMenu.Visibility = Visibility.Visible;
-            //margin.Left = 190;
-            //this.GridMain.Margin = margin;
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {
             ButtonOpenMenu.Visibility = Visibility.Visible;
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
-           // margin.Left = 60;
-            //this.GridMain.Margin = margin;
-
         }
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)

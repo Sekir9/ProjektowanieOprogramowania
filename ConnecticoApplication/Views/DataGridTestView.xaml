@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid>
-            <DataGrid>
+            <DataGrid x:Name="DataGrid">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Data"  Binding="{Binding FirstName}"/>
                     <DataGridTextColumn Header="Nazwa wycieczki" Binding="{Binding LastName}" />

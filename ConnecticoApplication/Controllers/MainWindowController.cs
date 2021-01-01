@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ConnecticoApplication.Services;
+using ConnecticoApplication.ViewModels;
+using ConnecticoApplication.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,36 +11,38 @@ namespace ConnecticoApplication.Controler
 {
     public class MainWindowController
     {
-        private readonly MainWindow form;
-        public DataGridTestView synchronizationPage;
-        public EmptyView synchronizationConfiguration;
+        private readonly MainWindow _mainWindow;
+        public DataGridTestView dataGridTestView;
+        public EmptyView emptyView;
+        public MountainGroupsViewModel mountainGroupsViewModel;
 
-        public MainWindowController(MainWindow form)
+        public MainWindowController(MainWindow mainWindow)
         {
-            this.form = form;
-            synchronizationPage = new DataGridTestView();
-            synchronizationConfiguration = new EmptyView();
-        }
+            this._mainWindow = mainWindow;
+            dataGridTestView = new DataGridTestView();
+            emptyView = new EmptyView();
 
-        public void ResizeMainFrame()
-        {
-            form.GridMain.Width = form.GridMain.Width + 190;
+            mountainGroupsViewModel = new MountainGroupsView(_mainWindow.GridMain).viewModel;
+            mountainGroupsViewModel.MountainGroupService = new MountainGroupService();
         }
 
         public void ListViewSelected()
         {
-            int index = form.ListViewMenu.SelectedIndex;
+            int index = _mainWindow.ListViewMenu.SelectedIndex;
 
             switch (index)
             {
                 case 0:
-                    form.GridMain.Content = synchronizationPage; 
+                    _mainWindow.GridMain.Content = dataGridTestView; 
                     break;
                 case 1:
-                    form.GridMain.Content = synchronizationConfiguration;
-                    break;           
+                    _mainWindow.GridMain.Content = emptyView;
+                    break;
+                case 2:
+                    mountainGroupsViewModel.Activate();
+                    break;
                 default:
-                    form.GridMain.Content = synchronizationPage;
+                    _mainWindow.GridMain.Content = dataGridTestView;
                     break;
             }
         }

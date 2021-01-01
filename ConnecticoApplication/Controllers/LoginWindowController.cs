@@ -44,6 +44,7 @@ namespace ConnecticoApplication.Controler
         {
             _loginPage.loading_icon.Visibility = Visibility.Visible;
             _loginPage.status_icon.Visibility = Visibility.Collapsed;
+            _loginPage.back_Button.Visibility = Visibility.Collapsed;
             _loginPage.status_block.Text = "Loading..";
         }
 
@@ -82,6 +83,8 @@ namespace ConnecticoApplication.Controler
 
         public async Task CheckUserLoginDataAsync(string username, string password)
         {
+            _loginPage.back_Button.Visibility = Visibility.Collapsed; //hide try again button
+
             bool success = await _userService.Login(username, password);
             if (success)
             {

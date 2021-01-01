@@ -14,18 +14,21 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="190"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        
         <Storyboard x:Key="MenuClose">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="190"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="60" />
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        
         <Storyboard x:Key="FrameClose">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="GridMain" >
                 <SplineThicknessKeyFrame KeyTime="0" Value="0,0,0,0" />
                 <SplineThicknessKeyFrame KeyTime="0:0:0.3" Value="-130,0,0,0" />
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
+        
         <Storyboard x:Key="FrameOpen">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="GridMain" >
                 <SplineThicknessKeyFrame KeyTime="0" Value="-130,0,0,0" />
@@ -39,12 +42,15 @@
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
             <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
         </EventTrigger>
+        
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
             <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
         </EventTrigger>
+        
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
             <BeginStoryboard Storyboard="{StaticResource FrameClose}"/>
         </EventTrigger>
+        
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
             <BeginStoryboard Storyboard="{StaticResource FrameOpen}"/>
         </EventTrigger>
@@ -56,12 +62,15 @@
             <ColumnDefinition Width="190" MinWidth="120"/>
             <ColumnDefinition Width="*" MinWidth="600"/>
         </Grid.ColumnDefinitions>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="*" MinHeight="60"/>
             <RowDefinition Height="10*" MinHeight="200"/>
         </Grid.RowDefinitions>
+        
         <Grid  Grid.ColumnSpan="2"  Background="#FF297BBF">
             <TextBlock Text="Menadzer PTTK" Margin="150,0,0,0" VerticalAlignment="Center" FontSize="22" HorizontalAlignment="Center" Foreground="White"/>
+            
             <Button x:Name="max_minimize_button" Margin="0,0,80,0" Click="Max_Minimize_button_Click" BorderThickness="0"     HorizontalAlignment="Right" VerticalAlignment="Center" Height="40" Width="40" Foreground="{x:Null}" >
                 <Button.Background>
                     <ImageBrush  ImageSource="/Images/enlarge.png"/>
@@ -75,6 +84,7 @@
             </Button>
             
         </Grid>
+        
         <Grid x:Name="GridMenu" Grid.RowSpan="2" HorizontalAlignment="Left" Background="#FF5B5757">
             <StackPanel>
                 <Grid Height="140"  Background="White">
@@ -120,6 +130,7 @@
                 </ListView>
             </StackPanel>
         </Grid>
+        
         <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="200,10,10,10"  >
             <Frame x:Name="GridMain" Source="/Views/EmptyView.xaml" NavigationUIVisibility="Hidden"  >
                 
