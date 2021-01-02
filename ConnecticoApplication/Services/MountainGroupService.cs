@@ -54,5 +54,27 @@ namespace ConnecticoApplication.Services
 
             return true;
         }
+
+        public async Task<bool> EditMountainGroup(MountainGroup mountainGroup)
+        {
+            HttpClient client = HttpsApiClientProvider.httpClient;
+            HttpResponseMessage response;
+            try
+            {
+                response = await client.PostAsJsonAsync("mountaingroup/edit", mountainGroup);
+            }
+            catch
+            {
+                return false;
+            }
+
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

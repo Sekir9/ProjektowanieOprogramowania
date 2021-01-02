@@ -87,6 +87,7 @@
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\MountainGroupService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Utils\CustomMessageBox.cs" />
     <Compile Include="Utils\HttpsApiClientProvider.cs" />
     <Compile Include="ViewModels\MountainGroupsViewModel.cs" />
     <Compile Include="Views\EmptyView.xaml.cs">
@@ -94,6 +95,9 @@
     </Compile>
     <Compile Include="Views\DataGridTestView.xaml.cs">
       <DependentUpon>DataGridTestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MessageBoxWindow.xaml.cs">
+      <DependentUpon>MessageBoxWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MountainGroupDetailsWindow.xaml.cs">
       <DependentUpon>MountainGroupDetailsWindow.xaml</DependentUpon>
@@ -137,6 +141,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\MessageBoxWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MountainGroupDetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,12 +178,6 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\connectico.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\logo.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

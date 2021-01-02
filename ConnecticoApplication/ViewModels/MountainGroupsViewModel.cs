@@ -1,5 +1,6 @@
 ﻿using ConnecticoApplication.Models;
 using ConnecticoApplication.Services;
+using ConnecticoApplication.Utils;
 using ConnecticoApplication.Views;
 using ConnecticoApplication.Windows;
 using System;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Effects;
 
 namespace ConnecticoApplication.ViewModels
 {
@@ -35,6 +37,11 @@ namespace ConnecticoApplication.ViewModels
             _view.NameTextBox.Text = "";
             _view.NameTextBox.Text = "";
 
+            await ReadMountainGroupsAsync();
+        }
+
+        private async Task ReadMountainGroupsAsync()
+        {
             _mountainGroups = await MountainGroupService.GetMountainGroups();
             _view.DataGrid.DataContext = _mountainGroups;
         }
@@ -43,26 +50,26 @@ namespace ConnecticoApplication.ViewModels
         {
             string name = "";
             string abbreviation = "";
+            bool valid;
 
-            bool confirmed = AskForGroupData(ref name, ref abbreviation);
-            if (confirmed)
+            do
             {
-                MountainGroup newMountainGroup = new MountainGroup();
-                newMountainGroup.Name = name;
-                newMountainGroup.Abbreviation = abbreviation; //TODO add validation
+                bool confirmed = AskForGroupData(ref name, ref abbreviation);
+                if (!confirmed)
+                    return; //user resigned
 
-                bool success = await MountainGroupService.CreateMountainGroup(newMountainGroup);//TODO process success
-                if (success)
-                {
-                    //TODO create own messsage box 
-                }
-            }
+                valid = ValidateData(name, abbreviation);
+            } while (!valid);
+            
+            MountainGroup newMountainGroup = new MountainGroup();
+            newMountainGroup.Name = name;
+            newMountainGroup.Abbreviation = abbreviation;
 
-            _mountainGroups = await MountainGroupService.GetMountainGroups();
-            _view.DataGrid.DataContext = _mountainGroups;
+            bool success = await MountainGroupService.CreateMountainGroup(newMountainGroup);
+            ProcessServiceActionResponse(success);
         }
 
-        public void OnEditMountainGroupClicked(int id)
+        public async void OnEditMountainGroupClicked(int id)
         {
             MountainGroup mountainGroup = _mountainGroups.FirstOrDefault(m => m.Id == id);
             if (mountainGroup == null)
@@ -70,12 +77,39 @@ namespace ConnecticoApplication.ViewModels
 
             string name = mountainGroup.Name;
             string abbreviation = mountainGroup.Abbreviation;
+            bool valid;
 
-            bool confirmed = AskForGroupData(ref name, ref abbreviation);
-            if (confirmed)
+            do
             {
+                bool confirmed = AskForGroupData(ref name, ref abbreviation);
+                if (!confirmed)
+                    return; //user resigned
 
-            }//TODO add validation
+                valid = ValidateData(name, abbreviation, mountainGroup);
+            } while (!valid);
+
+            mountainGroup.Name = name;
+            mountainGroup.Abbreviation = abbreviation;
+
+            bool success = await MountainGroupService.EditMountainGroup(mountainGroup);
+            ProcessServiceActionResponse(success);
+        }
+
+        private void ProcessServiceActionResponse(bool success)
+        {
+            _ = ReadMountainGroupsAsync(); //Continue while ui is being refreshed
+
+            if (success)
+            {
+                CustomMessageBox.ShowSuccess(MainWindow.Instance, "Dane zostały pomyślnie zapisane.");
+            }
+            else
+            {
+                CustomMessageBox.ShowWarning(
+                    MainWindow.Instance,
+                    "Nie udało się zapisać danych!",
+                    "Spróbuj ponownie!\nBłąd po stronie aplikacji lub połączenia internetowego!");
+            }
         }
 
         public bool AskForGroupData(ref string name, ref string abbreviation)
@@ -83,7 +117,14 @@ namespace ConnecticoApplication.ViewModels
             MountainGroupDetailsWindow detailsWindow = new MountainGroupDetailsWindow(name, abbreviation);
             detailsWindow.Owner = MainWindow.Instance;
 
+            MainWindow.Instance.Opacity = 0.5;
+            MainWindow.Instance.Effect = new BlurEffect();
+
             bool? result = detailsWindow.ShowDialog();
+
+            MainWindow.Instance.Effect = null;
+            MainWindow.Instance.Opacity = 1;
+
             if (result ?? false)
             {
                 name = detailsWindow.GroupName;
@@ -92,6 +133,37 @@ namespace ConnecticoApplication.ViewModels
             }
 
             return false;
+        }
+
+        private bool ValidateData(string name, string abbreviation, MountainGroup exclude = null)
+        {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(abbreviation))
+            {
+                CustomMessageBox.ShowWarning(
+                    MainWindow.Instance,
+                    "Błąd danych",
+                    "Nazwa oraz skrót grupy górskiej nie mogą być puste");
+
+                return false;
+            }
+
+            var mountainGroups = _mountainGroups;
+            if (exclude != null)
+            {
+                mountainGroups = mountainGroups.Where(m => m.Id != exclude.Id);
+            }
+
+            MountainGroup duplicate = mountainGroups.FirstOrDefault(m => m.Name == name);
+            if (duplicate != null)
+            {
+                CustomMessageBox.ShowWarning(
+                    MainWindow.Instance,
+                    "Duplikat",
+                    "Grupa górska z taką nazwą już istnieje!");
+                return false;
+            }
+
+            return true;
         }
 
         public void OnFiltersChanged()

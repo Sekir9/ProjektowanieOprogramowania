@@ -11,5 +11,6 @@ namespace ConnecticoApplication.Services
     {
         Task<IEnumerable<MountainGroup>> GetMountainGroups();
         Task<bool> CreateMountainGroup(MountainGroup mountainGroup);
+        Task<bool> EditMountainGroup(MountainGroup mountainGroup);
     }
 }
