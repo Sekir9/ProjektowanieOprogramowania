@@ -15,6 +15,7 @@ namespace ConnecticoApplication.Controler
         public DataGridTestView dataGridTestView;
         public EmptyView emptyView;
         public MountainGroupsViewModel mountainGroupsViewModel;
+        public RoutePointsViewModel routePointsViewModel;
 
         public MainWindowController(MainWindow mainWindow)
         {
@@ -24,6 +25,9 @@ namespace ConnecticoApplication.Controler
 
             mountainGroupsViewModel = new MountainGroupsView(_mainWindow.GridMain).viewModel;
             mountainGroupsViewModel.MountainGroupService = new MountainGroupService();
+
+            routePointsViewModel = new RoutePointsView(_mainWindow.GridMain).viewModel;
+            routePointsViewModel.RoutePointService = new RoutePointService();
         }
 
         public void ListViewSelected()
@@ -40,6 +44,9 @@ namespace ConnecticoApplication.Controler
                     break;
                 case 2:
                     mountainGroupsViewModel.Activate();
+                    break;
+                case 3:
+                    routePointsViewModel.Activate();
                     break;
                 default:
                     _mainWindow.GridMain.Content = dataGridTestView;

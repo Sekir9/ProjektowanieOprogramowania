@@ -1,0 +1,93 @@
+﻿<Page x:Class="ConnecticoApplication.Views.RoutePointsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ConnecticoApplication.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RoutePointsView">
+
+    <Grid Background="LightGray">
+        <Grid.Resources>
+            <DataTemplate x:Key="EditButtonTemplate" >
+                <Button Tag="{Binding Id}" Click="EditRoutePoint_Click">Edytuj</Button>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0" FontWeight="Bold" FontSize="20" Margin="10,0,0,0">Grupy górskie</Label>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Bottom">
+                
+                <Label FontSize="16">Nazwa:</Label>
+                <TextBox x:Name="NameTextBox" FontSize="16" Margin="0,0,10,0" Width="150" TextChanged="FiltersChanged"></TextBox>
+                
+                <Label FontSize="16">Wysokość od:</Label>
+                <TextBox x:Name="HeightFromTextBox" PreviewTextInput="PreviewTextInput" FontSize="16" Margin="0,0,10,0" Width="70" TextChanged="HeightFromChanged" MaxLength="4">0</TextBox>
+
+                <Label FontSize="16">do:</Label>
+                <TextBox x:Name="HeightToTextBox" PreviewTextInput="PreviewTextInput" FontSize="16" Margin="0,0,10,0" Width="70" TextChanged="HeightToChanged" MaxLength="4">9999</TextBox>
+                <Label FontSize="16">m n.p.m.</Label>
+            </StackPanel>
+        </Grid>
+
+        <DataGrid x:Name="DataGrid" 
+                  ItemsSource="{Binding}" 
+                  Grid.Row="1" 
+                  VerticalAlignment="Stretch" 
+                  Margin="10" 
+                  IsReadOnly="True" 
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="4*" Header="Nazwa" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Width="2*" Header="Współrzędne" Binding="{Binding Cordinates}" CanUserSort="False"></DataGridTextColumn>
+                
+                <DataGridTextColumn Width="1*" Header="Wysokość" Binding="{Binding Height, StringFormat={}{0} m n.p.m}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Width="1.2*" Header="Użyty w trasach" Binding="{Binding UsedInRoutes}">
+
+                    
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                
+                <DataGridTemplateColumn Width="1*" Header="Akcje" CellTemplate="{StaticResource EditButtonTemplate}"></DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="RoutePointGroup" 
+                Grid.Row="3" 
+                Width="auto" 
+                HorizontalAlignment="Right" 
+                Margin="0,0,10,10" 
+                Click="RoutePointGroup_Click">
+            Stwórz punkt trasy
+        </Button>
+    </Grid>
+</Page>

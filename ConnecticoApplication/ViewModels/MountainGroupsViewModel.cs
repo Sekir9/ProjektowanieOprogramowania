@@ -35,7 +35,7 @@ namespace ConnecticoApplication.ViewModels
             _container.Content = _view;
 
             _view.NameTextBox.Text = "";
-            _view.NameTextBox.Text = "";
+            _view.AbbreviationTextBox.Text = "";
 
             await ReadMountainGroupsAsync();
         }
