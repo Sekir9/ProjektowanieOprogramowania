@@ -53,24 +53,29 @@ namespace ConnecticoApplication.ViewModels
             string cordinates = "";
             int? height = null;
             bool valid;
+            bool success;
 
             do
             {
-                bool confirmed = AskForPointData(ref name, ref description, ref cordinates, ref height);
-                if (!confirmed)
-                    return; //user resigned
+                do
+                {
+                    bool confirmed = AskForPointData(ref name, ref description, ref cordinates, ref height);
+                    if (!confirmed)
+                        return; //user resigned
 
-                valid = ValidateData(name, description, cordinates, height);
-            } while (!valid);
+                    valid = ValidateData(name, description, cordinates, height);
+                } while (!valid);
 
-            RoutePoint newRoutePoint = new RoutePoint();
-            newRoutePoint.Name = name;
-            newRoutePoint.Description = description;
-            newRoutePoint.Cordinates = cordinates;
-            newRoutePoint.Height = height.Value;
+                RoutePoint newRoutePoint = new RoutePoint();
+                newRoutePoint.Name = name;
+                newRoutePoint.Description = description;
+                newRoutePoint.Cordinates = cordinates;
+                newRoutePoint.Height = height.Value;
 
-            bool success = await RoutePointService.CreateRoutePoint(newRoutePoint);
-            ProcessServiceActionResponse(success);
+                success = await RoutePointService.CreateRoutePoint(newRoutePoint);
+                ProcessServiceActionResponse(success);
+            }
+            while (!success);
         }
 
         public async void OnEditRoutePointClicked(int id)
@@ -84,23 +89,28 @@ namespace ConnecticoApplication.ViewModels
             string cordinates = routePoint.Cordinates;
             int? height = routePoint.Height;
             bool valid;
+            bool success;
 
             do
             {
-                bool confirmed = AskForPointData(ref name, ref description, ref cordinates, ref height);
-                if (!confirmed)
-                    return; //user resigned
+                do
+                {
+                    bool confirmed = AskForPointData(ref name, ref description, ref cordinates, ref height);
+                    if (!confirmed)
+                        return; //user resigned
 
-                valid = ValidateData(name, description, cordinates, height, routePoint);
-            } while (!valid);
+                    valid = ValidateData(name, description, cordinates, height, routePoint);
+                } while (!valid);
 
-            routePoint.Name = name;
-            routePoint.Description = description;
-            routePoint.Cordinates = cordinates;
-            routePoint.Height = height.Value;
+                routePoint.Name = name;
+                routePoint.Description = description;
+                routePoint.Cordinates = cordinates;
+                routePoint.Height = height.Value;
 
-            bool success = await RoutePointService.EditRoutePoint(routePoint);
-            ProcessServiceActionResponse(success);
+                success = await RoutePointService.EditRoutePoint(routePoint);
+                ProcessServiceActionResponse(success);
+            }
+            while (!success);
         }
 
         private void ProcessServiceActionResponse(bool success)

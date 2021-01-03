@@ -51,22 +51,26 @@ namespace ConnecticoApplication.ViewModels
             string name = "";
             string abbreviation = "";
             bool valid;
+            bool success;
 
             do
             {
-                bool confirmed = AskForGroupData(ref name, ref abbreviation);
-                if (!confirmed)
-                    return; //user resigned
+                do
+                {
+                    bool confirmed = AskForGroupData(ref name, ref abbreviation);
+                    if (!confirmed)
+                        return; //user resigned
 
-                valid = ValidateData(name, abbreviation);
-            } while (!valid);
-            
-            MountainGroup newMountainGroup = new MountainGroup();
-            newMountainGroup.Name = name;
-            newMountainGroup.Abbreviation = abbreviation;
+                    valid = ValidateData(name, abbreviation);
+                } while (!valid);
 
-            bool success = await MountainGroupService.CreateMountainGroup(newMountainGroup);
-            ProcessServiceActionResponse(success);
+                MountainGroup newMountainGroup = new MountainGroup();
+                newMountainGroup.Name = name;
+                newMountainGroup.Abbreviation = abbreviation;
+
+                success = await MountainGroupService.CreateMountainGroup(newMountainGroup);
+                ProcessServiceActionResponse(success);
+            } while (!success);
         }
 
         public async void OnEditMountainGroupClicked(int id)
@@ -78,21 +82,25 @@ namespace ConnecticoApplication.ViewModels
             string name = mountainGroup.Name;
             string abbreviation = mountainGroup.Abbreviation;
             bool valid;
+            bool success;
 
             do
             {
-                bool confirmed = AskForGroupData(ref name, ref abbreviation);
-                if (!confirmed)
-                    return; //user resigned
+                do
+                {
+                    bool confirmed = AskForGroupData(ref name, ref abbreviation);
+                    if (!confirmed)
+                        return; //user resigned
 
-                valid = ValidateData(name, abbreviation, mountainGroup);
-            } while (!valid);
+                    valid = ValidateData(name, abbreviation, mountainGroup);
+                } while (!valid);
 
-            mountainGroup.Name = name;
-            mountainGroup.Abbreviation = abbreviation;
+                mountainGroup.Name = name;
+                mountainGroup.Abbreviation = abbreviation;
 
-            bool success = await MountainGroupService.EditMountainGroup(mountainGroup);
-            ProcessServiceActionResponse(success);
+                success = await MountainGroupService.EditMountainGroup(mountainGroup);
+                ProcessServiceActionResponse(success);
+            } while (!success);
         }
 
         private void ProcessServiceActionResponse(bool success)
