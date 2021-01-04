@@ -14,8 +14,11 @@ namespace ConnecticoApplication.Controler
         private readonly MainWindow _mainWindow;
         public DataGridTestView dataGridTestView;
         public EmptyView emptyView;
+
         public MountainGroupsViewModel mountainGroupsViewModel;
         public RoutePointsViewModel routePointsViewModel;
+        public BadgeApplicationsAssessmentViewModel badgeApplicationsAssessmentViewModel;
+
 
         public MainWindowController(MainWindow mainWindow)
         {
@@ -28,6 +31,9 @@ namespace ConnecticoApplication.Controler
 
             routePointsViewModel = new RoutePointsView(_mainWindow.GridMain).viewModel;
             routePointsViewModel.RoutePointService = new RoutePointService();
+
+            badgeApplicationsAssessmentViewModel = new BadgeApplicationsAssessmentView(_mainWindow.GridMain).viewModel;
+            badgeApplicationsAssessmentViewModel.BadgeApplicationService = new BadgeApplicationService();
         }
 
         public void ListViewSelected()
@@ -47,6 +53,9 @@ namespace ConnecticoApplication.Controler
                     break;
                 case 3:
                     routePointsViewModel.Activate();
+                    break;
+                case 4:
+                    badgeApplicationsAssessmentViewModel.Activate();
                     break;
                 default:
                     _mainWindow.GridMain.Content = dataGridTestView;

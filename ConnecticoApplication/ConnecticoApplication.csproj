@@ -118,8 +118,21 @@
     <Compile Include="Controllers\MainWindowController.cs" />
     <Compile Include="Models\AuthenticateRequest.cs" />
     <Compile Include="Models\AuthenticateResponse.cs" />
+    <Compile Include="Models\Badge.cs" />
+    <Compile Include="Models\BadgeApplication.cs" />
+    <Compile Include="Models\BadgeRank.cs" />
+    <Compile Include="Models\CustomRouteData.cs" />
+    <Compile Include="Models\Entry.cs" />
+    <Compile Include="Models\LeaderData.cs" />
     <Compile Include="Models\MountainGroup.cs" />
+    <Compile Include="Models\Route.cs" />
     <Compile Include="Models\RoutePoint.cs" />
+    <Compile Include="Models\StandardRouteData.cs" />
+    <Compile Include="Models\Tour.cs" />
+    <Compile Include="Models\TuristData.cs" />
+    <Compile Include="Models\VerificationStatus.cs" />
+    <Compile Include="Services\BadgeApplicationService.cs" />
+    <Compile Include="Services\IBadgeApplicationService.cs" />
     <Compile Include="Services\IMountainGroupService.cs" />
     <Compile Include="Services\IRoutePointService.cs" />
     <Compile Include="Services\IUserService.cs" />
@@ -128,8 +141,12 @@
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Utils\CustomMessageBox.cs" />
     <Compile Include="Utils\HttpsApiClientProvider.cs" />
+    <Compile Include="ViewModels\BadgeApplicationsAssessmentViewModel.cs" />
     <Compile Include="ViewModels\MountainGroupsViewModel.cs" />
     <Compile Include="ViewModels\RoutePointsViewModel.cs" />
+    <Compile Include="Views\BadgeApplicationsAssessmentView.xaml.cs">
+      <DependentUpon>BadgeApplicationsAssessmentView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmptyView.xaml.cs">
       <DependentUpon>EmptyView.xaml</DependentUpon>
     </Compile>
@@ -138,6 +155,9 @@
     </Compile>
     <Compile Include="Views\RoutePointsView.xaml.cs">
       <DependentUpon>RoutePointsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BadgeApplicationAssessmentDetailsWindow.xaml.cs">
+      <DependentUpon>BadgeApplicationAssessmentDetailsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MessageBoxWindow.xaml.cs">
       <DependentUpon>MessageBoxWindow.xaml</DependentUpon>
@@ -152,11 +172,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BadgeApplicationsAssessmentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\RoutePointsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MountainGroupsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\BadgeApplicationAssessmentDetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
