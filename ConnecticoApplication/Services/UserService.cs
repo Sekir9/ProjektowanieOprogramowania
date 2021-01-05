@@ -38,5 +38,27 @@ namespace ConnecticoApplication.Services
 
             return true;
         }
+
+        public async Task<User> GetLoggedUser()
+        {
+            HttpClient client = HttpsApiClientProvider.httpClient;
+            HttpResponseMessage response;
+            try
+            {
+                response = await client.GetAsync("user");
+            }
+            catch
+            {
+                return null;
+            }
+
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            return await response.Content.ReadAsAsync<User>();
+        }
     }
 }

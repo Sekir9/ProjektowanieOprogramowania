@@ -132,6 +132,7 @@
     <Compile Include="Models\StandardRouteData.cs" />
     <Compile Include="Models\Tour.cs" />
     <Compile Include="Models\TuristData.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\VerificationStatus.cs" />
     <Compile Include="Services\BadgeApplicationService.cs" />
     <Compile Include="Services\IBadgeApplicationService.cs" />

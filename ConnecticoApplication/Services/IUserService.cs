@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConnecticoApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,7 @@ namespace ConnecticoApplication.Services
     public interface IUserService
     {
         Task<bool> Login(string login, string password);
+
+        Task<User> GetLoggedUser();
     }
 }

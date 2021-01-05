@@ -1,4 +1,5 @@
 ﻿using ConnecticoApplication.Controler;
+using ConnecticoApplication.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace ConnecticoApplication
 
             InitializeComponent();
             Instance = this;
-            formController = new MainWindowController(this);
+            formController = new MainWindowController(this, new UserService());
         }
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {

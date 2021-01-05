@@ -1,11 +1,16 @@
-﻿using ConnecticoApplication.Services;
+﻿using ConnecticoApplication.Models;
+using ConnecticoApplication.Services;
 using ConnecticoApplication.ViewModels;
 using ConnecticoApplication.Views;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace ConnecticoApplication.Controler
 {
@@ -19,8 +24,9 @@ namespace ConnecticoApplication.Controler
         public RoutePointsViewModel routePointsViewModel;
         public BadgeApplicationsAssessmentViewModel badgeApplicationsAssessmentViewModel;
 
+        private User _loggedUser;
 
-        public MainWindowController(MainWindow mainWindow)
+        public MainWindowController(MainWindow mainWindow, IUserService userService)
         {
             this._mainWindow = mainWindow;
             dataGridTestView = new DataGridTestView();
@@ -34,6 +40,8 @@ namespace ConnecticoApplication.Controler
 
             badgeApplicationsAssessmentViewModel = new BadgeApplicationsAssessmentView(_mainWindow.GridMain).viewModel;
             badgeApplicationsAssessmentViewModel.BadgeApplicationService = new BadgeApplicationService();
+
+            _loggedUser = Task.Run(() => userService.GetLoggedUser()).Result;
         }
 
         public void ListViewSelected()
@@ -49,13 +57,22 @@ namespace ConnecticoApplication.Controler
                     _mainWindow.GridMain.Content = emptyView;
                     break;
                 case 2:
-                    mountainGroupsViewModel.Activate();
+                    if (_loggedUser.IsAdmin)
+                        mountainGroupsViewModel.Activate();
+                    else
+                        _mainWindow.GridMain.Content = emptyView;
                     break;
                 case 3:
-                    routePointsViewModel.Activate();
+                    if (_loggedUser.IsAdmin)
+                        routePointsViewModel.Activate();
+                    else
+                        _mainWindow.GridMain.Content = emptyView;
                     break;
                 case 4:
-                    badgeApplicationsAssessmentViewModel.Activate();
+                    if (_loggedUser.isLeader)
+                        badgeApplicationsAssessmentViewModel.Activate();
+                    else
+                        _mainWindow.GridMain.Content = emptyView;
                     break;
                 default:
                     _mainWindow.GridMain.Content = dataGridTestView;

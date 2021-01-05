@@ -112,19 +112,19 @@
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="FileTree" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Trasy" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Grupy górskie" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Message" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Zgloszenia" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Punkty tras" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Settings" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Ustawienia" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Wnioski o odznaki" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
