@@ -10,6 +10,8 @@ namespace ConnecticoApplication.Models
 {
     public class BadgeApplication
     {
+        public const int DESCRIPTION_MAX_LENGTH = 500;
+
         public int Id { get; set; }
         public DateTime? AwardDate { get; set; }
 
@@ -18,6 +20,7 @@ namespace ConnecticoApplication.Models
         public string Description { get; set; }
 
         public int LeaderId { get; set; }
+        public int TuristId { get; set; }
 
         public BadgeRank Rank { get; set; }
 

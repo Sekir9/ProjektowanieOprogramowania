@@ -120,6 +120,8 @@
     <Compile Include="Models\AuthenticateResponse.cs" />
     <Compile Include="Models\Badge.cs" />
     <Compile Include="Models\BadgeApplication.cs" />
+    <Compile Include="Models\BadgeApplicationDetailsWindow\BadgeApplicationDetailsWindowPayload.cs" />
+    <Compile Include="Models\BadgeApplicationDetailsWindow\BadgeApplicationStats.cs" />
     <Compile Include="Models\BadgeRank.cs" />
     <Compile Include="Models\CustomRouteData.cs" />
     <Compile Include="Models\Entry.cs" />

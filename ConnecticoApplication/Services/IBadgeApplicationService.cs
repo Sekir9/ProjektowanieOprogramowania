@@ -10,5 +10,9 @@ namespace ConnecticoApplication.Services
     public interface IBadgeApplicationService
     {
         Task<IEnumerable<BadgeApplication>> GetBadgeApplication();
+
+        Task<IEnumerable<BadgeApplication>> GetApprovedBadgeApplicationForTurist(int turistId);
+
+        Task<bool> UpdateBadgeApplication(BadgeApplication badgeApplication);
     }
 }

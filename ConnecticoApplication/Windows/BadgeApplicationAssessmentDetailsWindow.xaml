@@ -6,56 +6,95 @@
         xmlns:local="clr-namespace:ConnecticoApplication.Windows"
         mc:Ignorable="d"
         Title="BadgeApplicationAssessmentDetailsWindow"         
-        Height="700" 
+        Height="702" 
         Width="800"
         WindowStartupLocation="CenterOwner"
         WindowStyle="None"
         ResizeMode="NoResize"
         BorderThickness="1">
 
-    <StackPanel Margin="20">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <Label x:Name="TuristNameLabel" Grid.Row="0" Grid.Column="0" FontSize="16" FontWeight="Medium">Turysta: Przykładowy Turysta</Label>
-            <Label x:Name="BadgeLabel" Grid.Row="1" Grid.Column="0" FontSize="16" FontWeight="Medium">Wniosek o: Mała złota</Label>
-
-            <Label Grid.Row="0" Grid.Column="1" FontSize="16" Margin="10,0,0,0" FontWeight="Medium">Posiada odznaki:</Label>
-
-            <Label x:Name="OwnedBadgesLabel" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" FontSize="16" FontWeight="Medium">Popularna (01.2016), Mała brązowa (05.2017),</Label>
-        </Grid>
-
-        <Label FontSize="16" FontWeight="Medium">Statystyki:</Label>
+    <Grid>
+        <DockPanel>
+            <Label Margin="20,0,0,0">Sprawdzanie wniosku o odznakę</Label>
+            <Button x:Name="ExitButton"
+                Click="ExitButton_Click" 
+                BorderThickness="0"  
+                Margin="10"   
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                Height="20" 
+                Width="20" 
+                Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush  ImageSource="/Images/remove.png"/>
+                </Button.Background>
+            </Button>
+        </DockPanel>
         
-        <Border BorderBrush="Black" BorderThickness="1" Margin="5,0,0,5">
-            <ScrollViewer HorizontalScrollBarVisibility="auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" MinHeight="150">
-                <TextBlock>TESTY</TextBlock>
-            </ScrollViewer>
-        </Border>
+        <StackPanel Margin="20,25,20,20">
 
-        <Label FontSize="16" FontWeight="Medium">Wycieczki:</Label>
 
-        <DataGrid MinHeight="200">
-            
-        </DataGrid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        <Grid HorizontalAlignment="Stretch" Margin="0,20,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-            <Label Grid.Column="0" FontSize="16" VerticalAlignment="Center" FontWeight="Medium">Opis:</Label>
-            <TextBox Grid.Column="1" FontSize="16"  Height="100" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxLength="500"></TextBox>
-        </Grid>
-    </StackPanel>
+                <Label x:Name="TuristNameLabel" Grid.Row="0" Grid.Column="0" FontSize="16" FontWeight="Medium">Turysta: Przykładowy Turysta</Label>
+                <Label x:Name="BadgeLabel" Grid.Row="1" Grid.Column="0" FontSize="16" FontWeight="Medium">Wniosek o: Mała złota</Label>
+
+                <Label Grid.Row="0" Grid.Column="1" FontSize="16" Margin="10,0,0,0" FontWeight="Medium">Posiada odznaki:</Label>
+
+                <Label x:Name="OwnedBadgesLabel" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" FontSize="16" FontWeight="Medium">Popularna (01.2016), Mała brązowa (05.2017),</Label>
+            </Grid>
+
+            <Label FontSize="16" FontWeight="Medium">Statystyki:</Label>
+
+            <Border BorderBrush="Black" BorderThickness="1" Margin="5,0,0,5">
+                <ScrollViewer HorizontalScrollBarVisibility="auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Height="150">
+                    <StackPanel x:Name="StatisticsStackPanel">
+                        <Label x:Name="WholeStatsLabel" Margin="20,0,0,0" FontSize="14">Statystyki</Label>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+            <Label FontSize="16" FontWeight="Medium">Wycieczki:</Label>
+
+            <Border BorderBrush="Black" BorderThickness="1" Margin="5,0,0,5">
+                <DataGrid x:Name="ToursDataGrid" ItemsSource="{Binding}" IsReadOnly="True" AutoGenerateColumns="False" Height="200">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="2*" Header="Początek wycieczki" Binding="{Binding TourStart, StringFormat=dd.MM.yyy}"/>
+                        <DataGridTextColumn Width="2*" Header="Koniec wycieczki" Binding="{Binding TourEnd, StringFormat=dd.MM.yyy}"/>
+                        <DataGridTextColumn Width="*" Header="Dni" Binding="{Binding TourLength}"/>
+                        <DataGridTextColumn Width="2*" Header="Grupy górskie" Binding="{Binding MountainGroupsString}"/>
+                        <DataGridTextColumn Width="2*" Header="Ilość tras" Binding="{Binding RouteCount}"/>
+                        <DataGridTextColumn Width="2*" Header="Ilość punktów" Binding="{Binding Points}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+
+            <Grid HorizontalAlignment="Stretch" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" FontSize="16" VerticalAlignment="Center" FontWeight="Medium">Opis:</Label>
+                <TextBox x:Name="DescriptionTextBox" Grid.Column="1" FontSize="16"  Height="100" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxLength="500" Margin="0,0,1,0"></TextBox>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Right">
+
+                <Button Margin="0,0,10,0" Click="AcceptButton_Click">Zaakceptuj</Button>
+                <Button Margin="0,0,10,0" Click="RejectButton_Click">Odrzuć</Button>
+                <Button Click="KeepInProgressButton_Click">Pozostaw w toku</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
 </Window>

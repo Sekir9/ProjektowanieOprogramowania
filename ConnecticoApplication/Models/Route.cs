@@ -12,6 +12,7 @@ namespace ConnecticoApplication.Models
         public string Name { get; set; }
         public decimal Length { get; set; }
         public int SumOfClimbs { get; set; }
+        public int Points { get { return GetPoints(); } }
 
         public bool isStandardRoute { get { return StandardRouteData != null; } }
         public StandardRouteData StandardRouteData { get; set; }
@@ -23,5 +24,13 @@ namespace ConnecticoApplication.Models
 
         public RoutePoint StartingPoint { get; set; }
         public RoutePoint EndingPoint { get; set; }
+
+        private int GetPoints()
+        {
+            int pointsForDistance = (int)Math.Round(Length);
+            int pointsForClimbs = (int)Math.Round(SumOfClimbs / 100f);
+
+            return pointsForDistance + pointsForClimbs;
+        }
     }
 }

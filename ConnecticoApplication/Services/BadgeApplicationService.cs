@@ -32,5 +32,49 @@ namespace ConnecticoApplication.Services
 
             return await response.Content.ReadAsAsync<IEnumerable<BadgeApplication>>();
         }
+
+        public async Task<IEnumerable<BadgeApplication>> GetApprovedBadgeApplicationForTurist(int turistId)
+        {
+            HttpClient client = HttpsApiClientProvider.httpClient;
+            HttpResponseMessage response;
+            try
+            {
+                response = await client.GetAsync($"/badgeapplications/approved/{turistId}");
+            }
+            catch
+            {
+                return null;
+            }
+
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            return await response.Content.ReadAsAsync<IEnumerable<BadgeApplication>>();
+        }
+
+        public async Task<bool> UpdateBadgeApplication(BadgeApplication badgeApplication)
+        {
+            HttpClient client = HttpsApiClientProvider.httpClient;
+            HttpResponseMessage response;
+            try
+            {
+                response = await client.PostAsJsonAsync("badgeapplication/update", badgeApplication);
+            }
+            catch
+            {
+                return false;
+            }
+
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
