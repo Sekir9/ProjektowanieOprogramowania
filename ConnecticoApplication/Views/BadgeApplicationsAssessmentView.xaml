@@ -12,7 +12,7 @@
     <Grid Background="LightGray">
         <Grid.Resources>
             <DataTemplate x:Key="AssessButtonTemplate" >
-                <Button Tag="{Binding Id}" Click="AssessBadgeApplication_Click">Sprawdź</Button>
+                <Button x:Name="AssessApplicationButton" Tag="{Binding Id}" Click="AssessBadgeApplication_Click">Sprawdź</Button>
             </DataTemplate>
 
             <local:BadgeTypeToDescriptionConverter x:Key="BadgeTypeToDescriptionConverter"/>

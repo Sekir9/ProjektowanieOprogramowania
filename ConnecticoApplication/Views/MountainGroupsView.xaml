@@ -11,7 +11,7 @@
     <Grid Background="LightGray">
         <Grid.Resources>
             <DataTemplate x:Key="EditButtonTemplate" >
-                <Button Tag="{Binding Id}" Click="EditMountainGroup_Click">Edytuj</Button>
+                <Button x:Name="EditMountainGroupButton" Tag="{Binding Id}" Click="EditMountainGroup_Click">Edytuj</Button>
             </DataTemplate>
         </Grid.Resources>
 

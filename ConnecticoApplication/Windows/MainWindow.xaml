@@ -1,4 +1,5 @@
 ﻿<Window x:Class="ConnecticoApplication.MainWindow"
+        x:Name="main_window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -109,19 +110,19 @@
                             <TextBlock Text="Edycja" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem x:Name="mountainGroupsPanelButton" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="FileTree" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
                             <TextBlock Text="Grupy górskie" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem x:Name="routePointsPanelButton" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Message" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
                             <TextBlock Text="Punkty tras" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem x:Name="BageApplicationsPanelButton" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Settings" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
                             <TextBlock Text="Wnioski o odznaki" VerticalAlignment="Center" Margin="20 10"/>

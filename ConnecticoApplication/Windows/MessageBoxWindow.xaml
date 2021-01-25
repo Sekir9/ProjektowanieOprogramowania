@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConnecticoApplication.Windows" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        x:Name="MessageBox"
         mc:Ignorable="d"
         Title="MessageBoxWindow"
         SizeToContent="WidthAndHeight"
